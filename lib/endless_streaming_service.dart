@@ -174,6 +174,8 @@ class EndlessStreamingService {
 
   void dispose() {
     _audioStreamSubscription?.cancel();
+    _streamingRecognizeSubscription?.cancel();
+    _request?.close();
     _resetTimer?.cancel();
     _endlessStream.close();
   }
